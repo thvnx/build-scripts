@@ -82,12 +82,16 @@ cmake -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
 cmake --build . --target install
 popd
 
-TARGET=kvx-llvmosp
-
 mkdir -p build-newlib
 pushd build-newlib
+CC_FOR_TARGET=clang \
+CFLAGS_FOR_TARGET=" --target=kvx-osp" \
+AS_FOR_TARGET=${TARGET}-as \
+LD_FOR_TARGET=${TARGET}-ld \
+RANLIB_FOR_TARGET=${TARGET}-ranlib \
+AR_FOR_TARGET=${TARGET}-ar \
 ../newlib/configure \
-    --target="$TARGET" \
+    --target=kvx-llvmosp \
     --prefix="$PREFIX" \
     --enable-multilib \
     --enable-target-optspace \
