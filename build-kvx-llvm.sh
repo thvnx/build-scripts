@@ -85,16 +85,18 @@ popd
 mkdir -p build-newlib
 pushd build-newlib
 CC_FOR_TARGET=clang \
-CFLAGS_FOR_TARGET=" --target=kvx-osp" \
+CFLAGS_FOR_TARGET=" --target=kvx-osp --toolroot=$PREFIX" \
 AS_FOR_TARGET=${TARGET}-as \
 LD_FOR_TARGET=${TARGET}-ld \
 RANLIB_FOR_TARGET=${TARGET}-ranlib \
 AR_FOR_TARGET=${TARGET}-ar \
-../newlib/configure \
+    ../newlib/configure \
+    --with-sysroot="$PREFIX" \
     --target=kvx-llvmosp \
     --prefix="$PREFIX" \
     --enable-multilib \
-    --enable-target-optspace \
+    --enable-target-optspace=no \
+    --enable-initfini-array \
     --enable-newlib-io-c99-formats \
     --enable-newlib-multithread
 
