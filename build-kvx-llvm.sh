@@ -50,7 +50,7 @@ function git_clone() {
 
 git_clone https://github.com/kalray/gdb-binutils.git "${SHA1_BINUTILS}" -
 git_clone https://github.com/kalray/newlib.git "${SHA1_NEWLIB}" coolidge
-git_clone https://github.com/kalray/llvm-project "${SHA1_LLVM}" coolidge
+git_clone https://github.com/kalray/llvm-project "${SHA1_LLVM}" kalray/12.x/kvx-12.0.0
 
 mkdir -p build-binutils
 pushd build-binutils
