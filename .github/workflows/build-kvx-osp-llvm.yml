@@ -17,6 +17,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     
     steps:
+    - name: Maximize build space
+      uses: easimon/maximize-build-space@master
+      with:
+        root-reserve-mb: 512
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
     - uses: actions/checkout@v1
     - name: Install deps
       run: ./install-ubuntu-prereq.sh
