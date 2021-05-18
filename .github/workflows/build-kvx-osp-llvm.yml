@@ -20,12 +20,15 @@ jobs:
     - name: Maximize build space
       uses: easimon/maximize-build-space@master
       with:
-        root-reserve-mb: 512
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'
-    - uses: actions/checkout@v1
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Install deps
       run: ./install-ubuntu-prereq.sh
+
     - name: Build
       run: source last.refs && ./build-kvx-llvm.sh test-llvm-build
