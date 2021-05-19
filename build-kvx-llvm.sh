@@ -85,7 +85,7 @@ popd
 mkdir -p build-newlib
 pushd build-newlib
 CC_FOR_TARGET=clang \
-CFLAGS_FOR_TARGET=" --target=kvx-osp --toolroot=$PREFIX" \
+CFLAGS_FOR_TARGET=" --target=kvx-osp --sysroot=$PREFIX" \
 AS_FOR_TARGET=${TARGET}-as \
 LD_FOR_TARGET=${TARGET}-ld \
 RANLIB_FOR_TARGET=${TARGET}-ranlib \
