@@ -1,18 +1,15 @@
-name: CI
+name: CI LLVM
 
 on:
-  pull_request:
   push:
-    branches:
-      - '**'
-    tags-ignore:
-      - v*
+    tags:
+      - llvm*
 
 jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04, ubuntu-latest]
+        os: [ubuntu-18.04, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
     
