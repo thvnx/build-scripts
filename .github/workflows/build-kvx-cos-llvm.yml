@@ -3,7 +3,7 @@ name: CI LLVM
 on:
   push:
     tags:
-      - llvm*
+      - llvm-v*
 
 jobs:
   build:
