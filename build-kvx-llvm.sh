@@ -47,7 +47,7 @@ git_clone https://github.com/kalray/llvm-project "${SHA1_LLVM}" kalray/12.x/kvx-
 mkdir -p build-llvm
 pushd build-llvm
 
-cmake -G Ninja -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ \
+cmake -G Ninja -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ \
       -DLLVM_TARGETS_TO_BUILD=KVX -DLLVM_DEFAULT_TARGET_TRIPLE=$TRIPLE \
       -DCMAKE_BUILD_TYPE=Release -DLLVM_INCLUDE_EXAMPLES=False \
       -DLLVM_PARALLEL_LINK_JOBS=2 -DLLVM_USE_LINKER=gold \
